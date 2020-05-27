@@ -1,4 +1,4 @@
-# Introducing Python
+# Practical Statistics for Data Scientists
 
 Examples and exercise solutions from "Practical Statistics for Data Scientists" 
 book by Peter Bruce and Andrew Bruce.

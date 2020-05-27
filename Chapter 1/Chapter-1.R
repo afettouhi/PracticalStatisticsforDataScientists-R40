@@ -38,6 +38,8 @@ etfs <- sp500_px[row.names(sp500_px)>"2012-07-01",
 library(corrplot)
 corrplot(cor(etfs), method = "ellipse")
 
+telecom <- sp500_px[, sp500_sym[sp500_sym$sector=="telecommunications_services", 'symbol']]
+telecom <- telecom[row.names(telecom)>"2012-07-01", ]
 plot(telecom$T, telecom$VZ, xlab="T", ylab="VZ")
 
 kc_tax <- read.csv(file= "/home/af/Dokumenter/Programs/PracticalStatisticsforDataScientists-R40/data/kc_tax.csv")
@@ -60,6 +62,7 @@ ggplot(kc_tax0, aes(SqFtTotLiving, TaxAssessedValue)) +
   labs(x="Finished Square Feet", y="Tax Assessed Value")
 
 library(descr)
+lc_loans <- read.csv("/home/af/Dokumenter/Programs/PracticalStatisticsforDataScientists-R40/data/lc_loans.csv")
 x_tab <- CrossTable(lc_loans$grade, lc_loans$status,
                     prop.c=FALSE, prop.chisq=FALSE, prop.t=FALSE)
 
