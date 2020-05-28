@@ -5,7 +5,11 @@ library(mgcv)
 library(rpart)
 library(klaR)
 
+loan3000 <- read.csv(file= "/home/af/Dokumenter/Programs/PracticalStatisticsforDataScientists-R40/data/loan3000.csv")
 loan_data <- read.csv(file= "/home/af/Dokumenter/Programs/PracticalStatisticsforDataScientists-R40/data/loan_data.csv")
+full_train_set <- read.csv(file= "/home/af/Dokumenter/Programs/PracticalStatisticsforDataScientists-R40/data/full_train_set.csv")
+
+loan_data$outcome <- as.factor(loan_data$outcome)
 
 naive_model <- NaiveBayes(outcome ~ purpose_ + home_ + emp_len_,
                           data = na.omit(loan_data))
@@ -23,6 +27,8 @@ loan_lda$scaling
 
 pred <- predict(loan_lda)
 head(pred$posterior)
+
+lda_df <- cbind(loan3000, prob_default=pred$posterior[,'default'])
 
 x <- seq(from=.33, to=.73, length=100)
 y <- seq(from=0, to=20, length=100)
