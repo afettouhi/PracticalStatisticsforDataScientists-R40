@@ -10,6 +10,7 @@ loan200$outcome <- ordered(loan200$outcome, levels=c('paid off', 'default'))
 
 loan_data <- read.csv(file= "/home/af/Dokumenter/Programs/PracticalStatisticsforDataScientists-R40/data/loan_data.csv")
 loan_data <- select(loan_data,-X, -status)
+loan_data$outcome <- ordered(loan_data$outcome, levels=c('paid off', 'default'))
 
 loan3000 <- read.csv(file= "/home/af/Dokumenter/Programs/PracticalStatisticsforDataScientists-R40/data/loan3000.csv")
 loan3000$outcome <- ordered(loan3000$outcome, levels=c('paid off', 'default'))
